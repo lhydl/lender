@@ -4,11 +4,21 @@ public class Loan {
     private boolean isPaid;
     private double interestRate;
 
+    public static int maxLoanAmount = 0; //static variable = every object shares this
+
     public Loan(String borrower, int amount, double interestRate) {
         this.borrower = borrower;
         this.amount = amount;
         this.interestRate = interestRate;
         this.isPaid = false;
+
+        if(amount > maxLoanAmount){
+            maxLoanAmount = amount;
+        }
+    }
+
+    public static int getMaxLoanAmount(){
+        return maxLoanAmount;
     }
 
     public void setAsPaid() {
